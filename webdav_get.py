@@ -1,4 +1,4 @@
-from app import app, config
+from app import app, config, auth
 import parse
 import os
 import inspect
@@ -49,6 +49,7 @@ def get_directory(path):
 
 @app.route("/", defaults={"path": "/"})
 @app.route("/<path:path>")
+@auth.login_required
 def get(path):
     if path == "/":
         return get_directory(path)
