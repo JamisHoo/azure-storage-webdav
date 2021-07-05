@@ -110,4 +110,4 @@ def list(path):
             lxml.etree.SubElement(
                 xml_propstat, lxml.etree.QName("DAV:", "status")).text = "HTTP/1.1 200 OK"
 
-    return Response(lxml.etree.tostring(xml_multistatus, pretty_print=True, encoding="utf-8", xml_declaration=True), mimetype="text/xml")
+    return Response(lxml.etree.tostring(xml_multistatus, pretty_print=True, encoding="utf-8", xml_declaration=True), status=207, mimetype="text/xml")
