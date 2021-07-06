@@ -1,4 +1,4 @@
-from app import app, config, auth
+from app import app, config, auth, compress
 from flask import request, Response, abort
 from wsgiref.handlers import format_date_time
 import os
@@ -10,6 +10,7 @@ import azure.storage.filedatalake
 @app.route("/", methods=["PROPFIND"], defaults={"path": "/"})
 @app.route("/<path:path>", methods=["PROPFIND"])
 @auth.login_required
+@compress.compressed()
 def list(path):
     depth = request.headers.get("Depth")
     if not depth:

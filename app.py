@@ -3,6 +3,7 @@
 import hmac
 import json
 import flask
+import flask_compress
 import flask_httpauth
 
 
@@ -24,6 +25,9 @@ with open("config.json") as f:
         config.auth[u] = config_data["auth"][u]
 
 app = flask.Flask(__name__)
+app.config["COMPRESS_REGISTER"] = False
+compress = flask_compress.Compress()
+compress.init_app(app)
 auth = flask_httpauth.HTTPBasicAuth()
 
 
