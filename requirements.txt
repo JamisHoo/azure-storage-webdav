@@ -1,0 +1,6 @@
+flask
+flask_compress
+flask_httpauth
+parse
+azure-storage-file-datalake
+lxml
