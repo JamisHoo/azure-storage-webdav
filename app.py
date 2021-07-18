@@ -40,3 +40,4 @@ def verify_password(username, password):
 import webdav_options  # noqa
 import webdav_get  # noqa
 import webdav_propfind  # noqa
+import webdav_mkcol  # noqa
