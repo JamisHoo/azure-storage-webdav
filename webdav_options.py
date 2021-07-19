@@ -8,5 +8,5 @@ from flask import Response
 def options(path):
     response = Response()
     response.headers["DAV"] = "1"
-    response.headers["Allow"] = "GET,HEAD,MKCOL,PROPFIND,OPTIONS"
+    response.headers["Allow"] = "GET,HEAD,DELETE,MKCOL,PROPFIND,OPTIONS"
     return response
