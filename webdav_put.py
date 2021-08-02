@@ -14,6 +14,9 @@ def put(path):
         config.storage_account_name), config.storage_container, path, credential=config.storage_account_key)
 
     total_length = request.content_length
-    blob_client.upload_blob(request.stream, length=request.content_length, overwrite=True)
+    content_settings = azure.storage.blob.ContentSettings(
+        content_type=request.content_type, content_encoding=request.content_encoding)
+    blob_client.upload_blob(request.stream, length=request.content_length,
+                            overwrite=True, content_settings=content_settings)
 
     return Response(status=204)
