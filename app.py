@@ -42,3 +42,4 @@ import webdav_get  # noqa
 import webdav_propfind  # noqa
 import webdav_mkcol  # noqa
 import webdav_delete  # noqa
+import webdav_put  # noqa
