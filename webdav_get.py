@@ -2,6 +2,7 @@ from app import app, config, auth
 import parse
 import os
 import inspect
+import base64
 from flask import request, Response, stream_with_context, abort, redirect
 import azure.storage.filedatalake
 
@@ -99,7 +100,8 @@ def get(path):
     if content_settings["content_language"]:
         response.content_language = content_settings["content_language"]
     if content_settings["content_md5"]:
-        response.content_md5 = content_settings["content_md5"]
+        response.content_md5 = base64.b64encode(
+            content_settings["content_md5"])
     if content_settings["content_type"]:
         response.content_type = content_settings["content_type"]
     if file_offset:
